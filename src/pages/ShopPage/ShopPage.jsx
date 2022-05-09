@@ -1,5 +1,8 @@
 import { useState, useEffect, useRef } from 'react'
-import CategoryList from '../../components/CategoryList/CategoryList';
+import CategoryList from '../../components/CategoryList/CategoryList'
+import ItemList from '../../components/ItemList/ItemList';
+import * as itemsAPI from '../../utilities/itemsAPI'
+import './ShopPage.css'
 
 export default function ShopPage(){
     const [items, setItems] = useState([]);
@@ -14,19 +17,22 @@ export default function ShopPage(){
             return cats.includes(cat) ? cats : [...cats, cat]
           }, []);
           setActiveCat(categoriesRef.current[1]);
-          setMenuItems(items);
+          setItems(items);
         }
         getItems();
       }, []);
 
     return(
-        <>
-        <h1>Yo we made it!</h1>
-        <CategoryList
-          categories={categoriesRef.current}
-          activeCat={activeCat}
-          setActiveCat={setActiveCat}
-        />
-        </>
+        <div id="shop-page-div">
+          <CategoryList
+            categories={categoriesRef.current}
+            activeCat={activeCat}
+            setActiveCat={setActiveCat}
+            id="cat-list"
+          />
+          <ItemList
+          items={items.filter(item => item.category.name === activeCat)}
+          />
+        </div>
     );
 };

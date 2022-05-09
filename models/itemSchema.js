@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const Schema = mongooses.Schema;
+const Schema = mongoose.Schema;
 
 const itemSchema = new Schema({
     name : { type: String, required: true },
@@ -10,4 +10,4 @@ const itemSchema = new Schema({
     timestamps : true
 });
 
-module.exports = itemSchema
+module.exports = itemSchema;
