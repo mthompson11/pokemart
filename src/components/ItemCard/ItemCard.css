@@ -1,0 +1,17 @@
+.item-card-container {
+    width: 90vw;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+}
+
+.item-link {
+    font-size: 30px;
+}
+
+.item-link, .item-link:hover, .item-link:focus, .item-link:active {
+    text-decoration: none;
+    color: inherit;
+}

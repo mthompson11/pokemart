@@ -1,0 +1,9 @@
+#shop-page-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#category-links{
+    margin: 15px 0;
+}

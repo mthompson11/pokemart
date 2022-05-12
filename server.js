@@ -15,6 +15,9 @@ app.use(require('./config/checkToken'))
 // Put API routes here, before the "catch all" route
 
 app.use('/api/users', require('./routes/api/users'))
+app.use('/api/items', require('./routes/api/items'))
+app.use('/api/orders', require('./routes/api/orders'));
+app.use('/api/checkout', require('./routes/api/checkout'))
 app.get('/*', function(req, res) {
     res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
