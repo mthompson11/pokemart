@@ -12,8 +12,9 @@ import MenuItem from '@mui/material/MenuItem';
 import logo from './logo.png'
 import './AppBar.css'
 import { useNavigate, Link } from 'react-router-dom';
+import { logOut } from '../../utilities/users-service';
 
-const ResponsiveAppBar = ({ itemQty }) => {
+const ResponsiveAppBar = ({ itemQty, setUser }) => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
 
   const handleOpenNavMenu = (event) => {
@@ -25,6 +26,11 @@ const ResponsiveAppBar = ({ itemQty }) => {
   };
 
   const navigate = useNavigate()
+
+  function handleLogOut() {
+    logOut();
+    setUser(null);
+  }
 
   return (
     <AppBar position="static">
@@ -70,10 +76,7 @@ const ResponsiveAppBar = ({ itemQty }) => {
                 }}>
                   <Typography textAlign="center">Shop</Typography>
                 </MenuItem>
-                <MenuItem onClick={() => {
-                  navigate('/')
-                  handleCloseNavMenu()
-                }}>
+                <MenuItem onClick={handleLogOut}>
                   <Typography textAlign="center">Logout</Typography>
                 </MenuItem>
             </Menu>
@@ -91,7 +94,7 @@ const ResponsiveAppBar = ({ itemQty }) => {
                 Shop
               </Button>
               <Button
-                onClick={() => navigate('/')}
+                onClick={handleLogOut}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
                 Logout

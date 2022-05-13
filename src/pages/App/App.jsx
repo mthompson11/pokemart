@@ -39,7 +39,7 @@ export default function App() {
    <main className="App">
      {user ?
         <>
-          <ResponsiveAppBar itemQty={ cart ? cart.lineItems.length : 0 }/>
+          <ResponsiveAppBar itemQty={ cart ? cart.lineItems.length : 0} setUser={setUser} />
           <Routes>
             <Route path="/" element={<ShopPage />} />
             <Route path='/items/:id' element={<ItemDetailPage handleAddToOrder={ handleAddToOrder }/>} />
