@@ -18,8 +18,16 @@ async function setItemQtyInCart(req, res) {
     res.json(cart)
   }
 
+async function markCartPaid(req, res) {
+  const cart = await Order.getCart(req.user._id)
+  cart.isPaid = true;
+  await cart.save();
+  res.json({})
+  }
+
 module.exports = {
     cart,
     addToCart,
-    setItemQtyInCart
+    setItemQtyInCart,
+    markCartPaid
 };

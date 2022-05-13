@@ -9,6 +9,7 @@ import ShopPage from '../ShopPage/ShopPage'
 import ItemDetailPage from '../ItemDetailPage/ItemDetailPage';
 import * as ordersAPI from '../../utilities/orders-api'
 import OrderDetailPage from '../OrderDetailPage/OrderDetailPage'
+import PaymentSuccessPage from '../PaymentSuccessPage/PaymentSuccessPage';
 
 export default function App() {
   const [user, setUser] = useState(getUser());
@@ -44,6 +45,7 @@ export default function App() {
             <Route path='/items/:id' element={<ItemDetailPage handleAddToOrder={ handleAddToOrder }/>} />
             <Route path="/orders/cart" element={<OrderDetailPage order={ cart } handleChangeQty={handleChangeQty} />} />
             <Route path="/orders" element={<OrderHistoryPage />} />
+            <Route path="/checkout/success/:id" element={cart ? <PaymentSuccessPage cart={ cart } setCart={ setCart }/> : null} />
           </Routes>
         </>
         :
