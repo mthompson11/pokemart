@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -10,7 +9,6 @@ import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 
 export default function LineItem({ lineItem, isPaid, handleChangeQty }) {
-    const theme = useTheme();
   
     return (
       <Card sx={{ display: 'flex' }}>
@@ -27,12 +25,12 @@ export default function LineItem({ lineItem, isPaid, handleChangeQty }) {
             </Typography>
           </CardContent>
           <Box sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 1 }}>
-            <IconButton aria-label="previous">
-                <RemoveIcon onClick={() => handleChangeQty(lineItem.item._id, lineItem.qty - 1)} />
+            <IconButton aria-label="previous" onClick={() => handleChangeQty(lineItem.item._id, lineItem.qty - 1)}>
+                <RemoveIcon />
             </IconButton>
             <span>{lineItem.qty}</span>
-            <IconButton aria-label="next">
-                <AddIcon onClick={() => handleChangeQty(lineItem.item._id, lineItem.qty + 1)} />
+            <IconButton aria-label="next" onClick={() => handleChangeQty(lineItem.item._id, lineItem.qty + 1)}>
+                <AddIcon />
             </IconButton>
           </Box>
         </Box>

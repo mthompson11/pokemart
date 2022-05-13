@@ -11,9 +11,7 @@ import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import logo from './logo.png'
 import './AppBar.css'
-import { useNavigate } from 'react-router-dom';
-
-const pages = ['Order History', 'Logout'];
+import { useNavigate, Link } from 'react-router-dom';
 
 const ResponsiveAppBar = ({ itemQty }) => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -33,7 +31,9 @@ const ResponsiveAppBar = ({ itemQty }) => {
       <Container maxWidth="xl">
         <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }} disableGutters>
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-            <img src={ logo } alt='' />
+            <Link to='/'>
+              <img src={ logo } alt='' />
+            </Link>
           </Box>
           <Box sx={{display: { xs: 'flex', md: 'none' } }}>
             <IconButton
@@ -64,26 +64,38 @@ const ResponsiveAppBar = ({ itemQty }) => {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                <MenuItem onClick={() => {
+                  navigate('/')
+                  handleCloseNavMenu()
+                }}>
+                  <Typography textAlign="center">Shop</Typography>
                 </MenuItem>
-              ))}
+                <MenuItem onClick={() => {
+                  navigate('/')
+                  handleCloseNavMenu()
+                }}>
+                  <Typography textAlign="center">Logout</Typography>
+                </MenuItem>
             </Menu>
           </Box>
           <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
-            <img src={ logo } alt='' />
+            <Link to='/'>
+              <img src={ logo } alt='' />
+            </Link>
           </Box>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
               <Button
-                key={page}
-                onClick={handleCloseNavMenu}
+                onClick={() => navigate('/')}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                {page}
+                Shop
               </Button>
-            ))}
+              <Button
+                onClick={() => navigate('/')}
+                sx={{ my: 2, color: 'white', display: 'block' }}
+              >
+                Logout
+              </Button>
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
