@@ -20,6 +20,7 @@ export default function ShopPage(){
           setItems(items);
         }
         getItems();
+        console.log(items);
       }, []);
 
     return(

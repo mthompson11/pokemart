@@ -1,7 +1,6 @@
 const Order = require('../../models/order');
 
 async function cart(req, res) {
-    // A cart is the unpaid order for a user
     const cart = await Order.getCart(req.user._id);
     res.json(cart);
   };

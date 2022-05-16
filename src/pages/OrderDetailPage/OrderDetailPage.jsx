@@ -2,7 +2,6 @@ import LineItem from '../../components/LineItem/LineItem'
 import Button from '@mui/material/Button';
 import './OrderDetailPage.css'
 import * as checkoutAPI from '../../utilities/checkout-api'
-import OrderHistoryPage from '../OrderHistoryPage/OrderHistoryPage';
 
 export default function OrderDetailPage({ order, handleChangeQty }){
     let lineItems

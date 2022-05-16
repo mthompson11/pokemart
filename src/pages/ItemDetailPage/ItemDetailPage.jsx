@@ -17,11 +17,6 @@ export default function ItemDetailPage({handleAddToOrder}){
         getItem();
       }, [id]);
 
-    // async function stripetest(){
-    //   const res = await checkoutAPI.checkout()
-    //   window.location.href = res.url
-    // };
-
     return(
       <div className="item-detail-container">
         <div className="item-detail-card">
@@ -32,7 +27,6 @@ export default function ItemDetailPage({handleAddToOrder}){
               <h1>{ item.name }</h1>
               <p>{ item.description }</p>
               <p>{ `$${item.price}` }</p>
-              <p>{ item.stripeId }</p>
               <Button variant='contained' onClick={() => handleAddToOrder(item._id)} sx={{ borderRadius: 10 }}>
                 Add to Cart
               </Button>

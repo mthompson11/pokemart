@@ -1,12 +1,16 @@
 import SignUpForm from "../../components/SignUpForm/SignUpForm"
 import LoginForm from '../../components/LoginForm/LoginForm'
+import logo from '../../components/AppBar/logo.png'
+import './AuthPage.css'
 
 export default function AuthPage({ setUser }){
     return(
-        <main>
-            <h1>AuthPage</h1>
-            <SignUpForm setUser={ setUser }/>
-            <LoginForm setUser={ setUser }/>
+        <main className="auth-main">
+            <img src={ logo } alt='' />
+            <div className="forms-container">
+                <SignUpForm setUser={ setUser }/>
+                <LoginForm setUser={ setUser }/>
+            </div>
         </main>
     )
 }

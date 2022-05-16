@@ -7,6 +7,10 @@
     margin: 20px;
 }
 
+.shop-image {
+    border-radius: 10px;
+}
+
 .item-link {
     font-size: 30px;
 }

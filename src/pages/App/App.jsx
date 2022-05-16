@@ -2,7 +2,6 @@ import './App.css';
 import { useEffect, useState } from 'react'
 import { Routes, Route} from 'react-router-dom';
 import AuthPage from '../AuthPage/AuthPage';
-import OrderHistoryPage from '../OrderHistoryPage/OrderHistoryPage';
 import { getUser } from '../../utilities/users-service'
 import ResponsiveAppBar from '../../components/AppBar/AppBar'
 import ShopPage from '../ShopPage/ShopPage'
@@ -41,10 +40,9 @@ export default function App() {
         <>
           <ResponsiveAppBar itemQty={ cart ? cart.lineItems.length : 0} setUser={setUser} />
           <Routes>
-            <Route path="/" element={<ShopPage />} />
+            <Route path="/" element={<ShopPage />}/>
             <Route path='/items/:id' element={<ItemDetailPage handleAddToOrder={ handleAddToOrder }/>} />
             <Route path="/orders/cart" element={<OrderDetailPage order={ cart } handleChangeQty={handleChangeQty} />} />
-            <Route path="/orders" element={<OrderHistoryPage />} />
             <Route path="/checkout/success/:id" element={cart ? <PaymentSuccessPage cart={ cart } setCart={ setCart }/> : null} />
           </Routes>
         </>
